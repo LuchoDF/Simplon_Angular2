@@ -1,0 +1,11 @@
+<p>Doggy</p>
+
+<form [formGroup]="chienForm">
+    <input type="text" name="nom" placeholder="nom" formControlName="nom"><br />
+    <input type="button" (click)="showMe()" value="affiche dans console">
+    <p>Completer le formulaire pour pouvoir le soumettre...</p>
+    <button type="submit" [disabled]="!chienForm.valid">Envoyer</button>
+  
+  </form>
+  
+  

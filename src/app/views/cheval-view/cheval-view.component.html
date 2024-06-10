@@ -1,0 +1,15 @@
+<p>cheval-view works!</p>
+
+  <form [formGroup]="chevalForm" (ngSubmit)="onSubmit()">
+
+    <input type="text" name="nom" placeholder="nom" formControlName="nom"><br/>
+
+    <div>
+      Il y a actuellement {{ numberOfHorses }} chevaux.
+    </div>
+    <p>Completer le formulaire pour pouvoir le soumettre...</p>
+    <button type="submit" [disabled]="!chevalForm.valid">Envoyer</button> 
+  </form>
+
+
+

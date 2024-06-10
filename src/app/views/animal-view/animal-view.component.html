@@ -1,0 +1,39 @@
+<h1> Horse career</h1>
+
+<!-- <p [innerHTML]="moncontenu"></p> -->
+<!-- <button (click)="changeText()">Change le texte</button> -->
+<h1>Dates du jour</h1>
+  <ul>
+    <li>{{ today | date }}</li>
+    <li>{{ today | date:'dd/MM/yyyy' }}</li>
+  </ul>
+
+<button (click)="runCourse()"> Run le cours de cheval</button>
+
+<button (click)="clearWinners()">Clear list</button>
+
+
+@for ( horse of horses; track $index) {
+  <div>
+  <button type="button" routerLink="/cheval/{{$index}}">Détail cheval {{ $index+1 }}</button>
+  </div>
+}
+
+@if (horses) {
+<ol>
+@for (item of horses; track $index) {
+    
+    <ul>{{ $index + 1 }} - <b>{{ winners[$index]}}</b></ul>
+}
+</ol>
+}
+
+<div class="horse-flex-container">
+    @for (horse of horses; track $index) {
+        <div class="horse-container">
+            <img [ngSrc]="chevalImage" alt="{{ horse.name }}" priority width="40" height= "40" class="mirror" [style.transform]="'translateX(' + 3*horse.getPos() + 'px) scaleX(-1)'">
+            <p>{{ horse.name }} - Position: {{ horse.getPos() }}</p>
+        
+        </div>
+    }
+</div>
